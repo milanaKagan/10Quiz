@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+	height: 100%;
+}
+body{
+  background-color: #527fee;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#go-animation{
+  color: #e6cf34;
+  font-family: 'Ubuntu', sans-serif; 
+  font-size: 150px;
+  font-weight: bold;
+}
+.page{
+  font-family: 'Ubuntu', sans-serif;
+  padding: 30px;
+  padding-top:0;
+  color: #e6cf34;
+  height: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+	align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  #logo{
+    transform: scale(0.6); 
+    margin-top:-50px;
+   }
+
+   #wellcome-text{
+    font-weight: bold;
+    font-size: 32px;
+    margin-top:-40px;
+  }
+
+  #error-message{
+    color: red;
+  }
+  
+  .switches{
+    margin-top:-40px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    .settings{
+      display: flex;
+      flex-direction:column;
+      align-items:center;
+     
+      }  
+    }       
+ 
+  .start-restart-button{
+    border: 0;
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 30px;
+    background: #4a8943;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,.55);
+    cursor: pointer;
+    color: #e6cf34;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    outline: none;
+    
+    &:active {
+      box-shadow: 0 10px 10px -5px rgba(0,0,0,.55) inset;
+    }
+  }
+  #question-number{
+    font-weight: bold;
+    font-size: 32px;
+  }
+  #timer{
+    width: 300px;
+    height: 40px;
+    border: thin;
+    border:solid thin black;
+    background-color:#4a8943 ;
+  }
+
+  #question{
+    background-color: rosybrown;
+    width: 300px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+  }
+  .choice-section{
+    display: flex;
+  .choice-bth{
+    margin: 20px;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: none;
+    font-size: 55px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: #e6cf34;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,.55);
+    &:active {
+      box-shadow: 0 10px 10px -5px rgba(0,0,0,.55) inset;
+    }
+  }
+    #no{
+      background-color: #4a8943;
+    }
+    #yes{
+      background-color: red;
+    }
+  }
+}

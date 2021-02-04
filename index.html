@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>10Quiz</title>
+</head>
+<body>
+    <div id="go-animation"></div>
+    <div class="page" id="strat-page">
+        <img id="logo" src="src/logo.png" alt="">
+        <p id="wellcome-text">Wellcome to <br> The Quizzz!!! <br> 10 sec for <br> 10 quations</p>
+        <div class="switches">
+            <div class="settings">
+                <label for="color">Color</label>
+                <input class="switch-button" id="color" type="checkbox">
+                <span></span>
+            </div>
+           <div class="settings">
+                <label for="grammar">Grammar</label>
+                <input class="switch-button" id="grammar" type="checkbox">
+            </div>
+            <div class="settings">
+                <label for="math">Math</label>
+                <input class="switch-button" id="math" type="checkbox">
+            </div>
+        </div>
+        <p id="error-message">Please choose at least one option!</p>
+       <button class="start-restart-button" id="start-button">Start</button>
+       </div> 
+
+    <div class="page" id="game-page">
+        <div id="question-number">0/10</div>
+        <div id="timer"></div>
+        <div id="question">QUESTION</div>
+        <div class="choice-section">
+            <button class="choice-bth" id="yes">Yes</button>
+            <button class="choice-bth" id="no">No</button>
+        </div>
+    </div>
+
+    <div class="page" id="restart-page">
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #527fee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#go-animation {
+  color: #e6cf34;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 150px;
+  font-weight: bold;
+}
+
+.page {
+  font-family: 'Ubuntu', sans-serif;
+  padding: 30px;
+  padding-top: 0;
+  color: #e6cf34;
+  height: 100%;
+  min-width: 320px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.page #logo {
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+  margin-top: -50px;
+}
+
+.page #wellcome-text {
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: -40px;
+}
+
+.page #error-message {
+  color: red;
+}
+
+.page .switches {
+  margin-top: -40px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.page .switches .settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page .start-restart-button {
+  border: 0;
+  width: 200px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 30px;
+  background: #4a8943;
+  -webkit-box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.55);
+          box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  color: #e6cf34;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+  outline: none;
+}
+
+.page .start-restart-button:active {
+  -webkit-box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.55) inset;
+          box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.55) inset;
+}
+
+.page #question-number {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.page #timer {
+  width: 300px;
+  height: 40px;
+  border: thin;
+  border: solid thin black;
+  background-color: #4a8943;
+}
+
+.page #question {
+  background-color: rosybrown;
+  width: 300px;
+  height: 330px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page .choice-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page .choice-section .choice-bth {
+  margin: 20px;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: none;
+  font-size: 55px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: #e6cf34;
+  cursor: pointer;
+  outline: none;
+  -webkit-box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.55);
+          box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.55);
+}
+
+.page .choice-section .choice-bth:active {
+  -webkit-box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.55) inset;
+          box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.55) inset;
+}
+
+.page .choice-section #no {
+  background-color: #4a8943;
+}
+
+.page .choice-section #yes {
+  background-color: red;
+}
+/*# sourceMappingURL=style.css.map */
