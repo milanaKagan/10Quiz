@@ -11,8 +11,10 @@ const $question = document.getElementById('question');
 const $yesBtn= document.getElementById('yes');
 const $noBtn= document.getElementById('no');
 const $score= document.getElementById('score');
+const $grade= document.getElementById('grade');
+const $restartBtn = document.getElementById('restart-button');
 
-//paramerers
+//Global params
 let $color = null;
 let $grammar = null;
 let $math = null;
@@ -57,7 +59,6 @@ const init = () => {
     initQuestiosnData();  
 }
 
-
 const chooseQuestion = (questionType) => {
 
   let index = null;
@@ -86,6 +87,7 @@ const chooseQuestion = (questionType) => {
   }  
 
 }
+
 const gamesettings = ()=> {
     let choiseIndex = -1;
     let choises = [];
@@ -104,6 +106,31 @@ const gamesettings = ()=> {
      }
      return choises;
 }
+
+const gameOver = () => {
+    clearTimeout(noTime);
+
+    noTime = null;
+    counter = 0;
+    result = null;
+
+    $gamePage.style.display = 'none';
+    $restartPage.style.display = 'flex';
+    $score.innerHTML = score + "/10";
+   
+    if(score <= 5){
+        $grade.innerHTML = "Need more practice!";
+    }
+    if(score > 5 && score <=8){
+        $grade.innerHTML = "Grate! You can reach 10/10, Try again!";
+    }
+    if(score > 8){
+        $grade.innerHTML = "!!! You are the King !!!";
+    }
+
+    score = 0;
+}
+
 const gameStart = () => {
     let choiseIndex = null;
     let choises = gamesettings();
@@ -130,14 +157,8 @@ const gameStart = () => {
         noTime = setTimeout(gameStart,5000);
     }
     else{
-        clearTimeout(noTime);
-        noTime = null;
-        counter = 0;
-        result = null;
-        $gamePage.style.display = 'none';
-        $restartPage.style.display = 'block';
-        $score.innerHTML = score;
-        score = 0;
+      
+        gameOver();
     }
 
 }
@@ -146,6 +167,7 @@ const goAnimation = () => {
 
     if(goIndex < 4){
         $goAnimation.style.display = 'block';
+        $goAnimation.style.color = '#e6cf34';
         $goAnimation.innerHTML = goIndex;
         goIndex++;
         setTimeout(goAnimation,1000);
@@ -193,7 +215,6 @@ const yesCheck = () => {
 
 }
 
-
 const noCheck = () => {
 
     if (result == false)
@@ -210,3 +231,4 @@ init();
 $startBtn.addEventListener('click',startPressed);
 $yesBtn.addEventListener('click',yesCheck);
 $noBtn.addEventListener('click',noCheck);
+$restartBtn.addEventListener('click',init);

@@ -15,6 +15,7 @@ body{
   font-size: 150px;
   font-weight: bold;
 }
+
 .page{
   font-family: 'Ubuntu', sans-serif;
   padding: 30px;
@@ -97,6 +98,17 @@ body{
     justify-content: center;
 
   }
+  #grade{
+   
+    font-size: 45px;
+
+  }
+
+  #score{
+    font-size: 70px;
+    font-weight: bold;
+  }
+
   .choice-section{
     display: flex;
   .choice-bth{

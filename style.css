@@ -31,7 +31,6 @@ body {
 .page {
   font-family: 'Ubuntu', sans-serif;
   padding: 30px;
-  padding-top: 0;
   color: #e6cf34;
   height: 100%;
   min-width: 320px;
@@ -127,9 +126,9 @@ body {
 }
 
 .page #question {
-  background-color: rosybrown;
   width: 300px;
   height: 330px;
+  font-size: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,6 +143,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.page #grade {
+  font-size: 45px;
+}
+
+.page #score {
+  font-size: 70px;
+  font-weight: bold;
 }
 
 .page .choice-section {
@@ -174,10 +182,10 @@ body {
 }
 
 .page .choice-section #no {
-  background-color: #4a8943;
+  background-color: red;
 }
 
 .page .choice-section #yes {
-  background-color: red;
+  background-color: #4a8943;
 }
 /*# sourceMappingURL=style.css.map */
