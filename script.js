@@ -154,7 +154,7 @@ const gameStart = () => {
             result = question[1];
         }
         
-        noTime = setTimeout(gameStart,5000);
+        noTime = setTimeout(gameStart,2000);
     }
     else{
       
