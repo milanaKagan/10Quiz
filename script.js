@@ -6,6 +6,8 @@ const $restartPage = document.getElementById('restart-page');
 const $errorMassage = document.getElementById('error-message');
 const $goAnimation = document.getElementById('go-animation');
 const $startBtn = document.getElementById('start-button');
+const $questionNumber = document.getElementById('question-number');
+const $question = document.getElementById('question');
 
 //paramerers
 let $color = null;
@@ -13,31 +15,117 @@ let $grammar = null;
 let $math = null;
 
 let goIndex = 1;
+let counter = 0;
+let score = 0;
+let noTime = null;
 
-let colorQuestions = {orange:'blue', yellow: 'green', red: 'red', brown: 'black', green: 'green', white : 'yellow', blue: 'blue', orange: 'orange', purple: 'orange',  brown: 'brown'};
-let colorResults = [false,false,true,false,true,false,true,true,false,true];
-let mathQuestions = ["5 > 3","3 = 8","6 >= 5","1 < 0","0 = 0","2 < 7","8 > 3","9 = 6","2 = 2","4 >= 4"];
-let mathResults = [true,false,false,false,true,true,true,false,true,false];
-let grammarQuestions = ["mother","fater","tabel","label","ecqual","canyon","short","langwhitch","karate","weazer"];
-let grammarResults = [true,false,false,true,false,false,true,false,true,false];
+let colorWord = null;
+let colorActual = ["orange", "yellow", "red", "brown", "green", "white", "blue", "purple", "black", "pink"];
+
+let mathQuestions = null;
+let mathResults = null;
+
+let grammarQuestions = null;
+let grammarResults = null;
 
 
 
 
 //functions
-const init = () =>{
+const init = () => {
     $startPage.style.display = 'flex';
     $errorMassage.style.visibility = "hidden";
     $gamePage.style.display = 'none';
     $restartPage.style.display = 'none';
     $goAnimation.style.display = 'none';
+
+    colorWord = ["orange", "yellow", "red", "brown", "green", "white", "blue", "purple", "black", "pink"];
+
+    mathQuestions = ["5 > 3","3 = 8","6 >= 5","1 < 0","0 = 0","2 < 7","8 > 3","9 = 6","2 = 2","4 >= 4"];
+    mathResults = [true,false,false,false,true,true,true,false,true,false];
+
+    grammarQuestions = ["mother","fater","tabel","label","ecqual","canyon","short","langwhitch","karate","weazer"];
+    grammarResults = [true,false,false,true,false,false,true,false,true,false];
 }
-const gameStart = () =>{
-let counter = 1;
 
 
+const chooseQuestion = (questionType) => {
+
+  let index = null;
+  let colorIndex = null; 
+  let result = null;
+    if(questionType == "color"){
+     index = Math.floor(Math.random() * colorWord.length);
+     colorIndex = Math.floor(Math.random() * colorActual.length);
+     result = [colorWord[index], colorWord[colorIndex], colorWord[index] == colorWord[colorIndex]];
+     colorWord.splice(index,1);
+     return result;
+  }
+  if(questionType == "math"){
+    index = Math.floor(Math.random() * mathQuestions.length);
+     result = [mathQuestions[index], mathResults[index]];
+     mathQuestions.splice(index,1);
+     mathResults.splice(index,1);
+     return result;
+  } 
+  if(questionType == "grammar"){
+    index = Math.floor(Math.random() * grammarQuestions.length);
+    result = [grammarQuestions[index], grammarResults[index]];
+    grammarQuestions.splice(index,1);
+    grammarResults.splice(index,1);
+    return result;
+  }  
+
 }
-const goAnimation = () =>{
+const gamesettings = ()=> {
+    let choiseIndex = -1;
+    let choises = [];
+     if($color.checked)
+     {
+        choiseIndex++;
+        choises[choiseIndex] = "color";
+     }
+     if($grammar.checked){
+        choiseIndex++;
+        choises[choiseIndex] = "grammar";
+     }
+     if($math.checked){
+        choiseIndex++;
+        choises[choiseIndex] = "math";
+     }
+     return choises;
+}
+const gameStart = () => {
+    let choiseIndex = null;
+    let choises = gamesettings();
+    
+    if(counter < 10){
+        counter++;
+        $questionNumber.innerHTML = (counter) + "/10";
+        choiseIndex = Math.floor(Math.random() * choises.length);
+
+        if(choises[choiseIndex] == "color"){
+            let question = chooseQuestion(choises[choiseIndex]);
+            $question.innerHTML = question[0];
+            $question.style.color = question[1];
+        }
+        else{
+
+            $question.style.color = "#e6cf34";
+            $question.innerHTML = chooseQuestion(choises[choiseIndex])[0];
+        }
+        noTime = setTimeout(gameStart,2000);
+    }
+    else{
+        clearTimeout(noTime);
+        counter = 0;
+        $gamePage.style.display = 'none';
+        $restartPage.style.display = 'block';
+    }
+
+}
+
+const goAnimation = () => {
 
     if(goIndex < 4){
         $goAnimation.style.display = 'block';
@@ -60,10 +148,10 @@ const goAnimation = () =>{
 
 }
 
-const startPressed = () =>{
-    let $color = document.getElementById('color');
-    let $grammar = document.getElementById('grammar');
-    let $math = document.getElementById('math');
+const startPressed = () => {
+    $color = document.getElementById('color');
+    $grammar = document.getElementById('grammar');
+    $math = document.getElementById('math');
 
     if(!$color.checked && !$grammar.checked && !$math.checked)
          $errorMassage.style.visibility = "visible";
@@ -73,7 +161,6 @@ const startPressed = () =>{
         $startPage.style.display = 'none';
         $restartPage.style.display = 'none';
         goAnimation();
-
     }
        
 }
